@@ -1,0 +1,200 @@
+{
+  "columns": [
+    {
+      "alias": "stringCol",
+      "address": "basicTypes/stringsRef/value",
+      "type": "string",
+      "titleLong": "String values",
+      "titleShort": "Strings",
+      "addressHash": "2sZunZAWb9ZlcMFti8A4bq",
+      "addressSegments": [
+        "basicTypes",
+        "stringsRef",
+        "value"
+      ],
+      "index": 0,
+      "_hash": "Mkm_W8fykN1dlIJGk6tBby"
+    },
+    {
+      "alias": "intCol",
+      "address": "basicTypes/numbersRef/intsRef/value",
+      "type": "number",
+      "titleLong": "Int values",
+      "titleShort": "Ints",
+      "addressHash": "cJhz9PiHpzhDJ_qdQNLV_U",
+      "addressSegments": [
+        "basicTypes",
+        "numbersRef",
+        "intsRef",
+        "value"
+      ],
+      "index": 1,
+      "_hash": "OG2gO5BOWNQdjOmvVgnsiq"
+    },
+    {
+      "alias": "floatCol",
+      "address": "basicTypes/numbersRef/floatsRef/value",
+      "type": "number",
+      "titleLong": "Float values",
+      "titleShort": "Floats",
+      "addressHash": "GnG6RBk5dCGIk1mBNbdx_6",
+      "addressSegments": [
+        "basicTypes",
+        "numbersRef",
+        "floatsRef",
+        "value"
+      ],
+      "index": 2,
+      "_hash": "5EudF2bqTWGafMNAcYHNbw"
+    },
+    {
+      "alias": "nullCol",
+      "address": "basicTypes/nullsRef/value",
+      "type": "null",
+      "titleLong": "Null values",
+      "titleShort": "Nulls",
+      "addressHash": "PIqubr7Tz-xQ6cIT-f939-",
+      "addressSegments": [
+        "basicTypes",
+        "nullsRef",
+        "value"
+      ],
+      "index": 3,
+      "_hash": "FI91KhGzm2RpblSRVlqk8N"
+    },
+    {
+      "alias": "booleanCol",
+      "address": "basicTypes/booleansRef/value",
+      "type": "boolean",
+      "titleLong": "Boolean values",
+      "titleShort": "Booleans",
+      "addressHash": "FYuPMxNjFpth4qhpYhtBXs",
+      "addressSegments": [
+        "basicTypes",
+        "booleansRef",
+        "value"
+      ],
+      "index": 4,
+      "_hash": "gRKr922YjHvKpwDQAQye6z"
+    },
+    {
+      "alias": "jsonObjectCol",
+      "address": "complexTypes/jsonObjectsRef/value",
+      "type": "json",
+      "titleLong": "Json objects",
+      "titleShort": "JO",
+      "addressHash": "AjQd2cFWpdE_6QZfx4SF7z",
+      "addressSegments": [
+        "complexTypes",
+        "jsonObjectsRef",
+        "value"
+      ],
+      "index": 5,
+      "_hash": "3uUXrrIZ5p4jgZRmUYrwKb"
+    },
+    {
+      "alias": "jsonArrayCol",
+      "address": "complexTypes/jsonArraysRef/value",
+      "type": "jsonArray",
+      "titleLong": "Array values",
+      "titleShort": "JA",
+      "addressHash": "dbTojL-iXEZS7Y2r9MkGDH",
+      "addressSegments": [
+        "complexTypes",
+        "jsonArraysRef",
+        "value"
+      ],
+      "index": 6,
+      "_hash": "rU4hpnzwj2MdEtLy8LWjVF"
+    },
+    {
+      "alias": "jsonValueCol",
+      "address": "complexTypes/jsonValuesRef/value",
+      "type": "jsonValue",
+      "titleLong": "Json values",
+      "titleShort": "JV",
+      "addressHash": "hKJOURxw--axRypU5ZX0O2",
+      "addressSegments": [
+        "complexTypes",
+        "jsonValuesRef",
+        "value"
+      ],
+      "index": 7,
+      "_hash": "A4sMYxzEsTTXyW53cemhxZ"
+    }
+  ],
+  "addresses": [
+    "basicTypes/stringsRef/value",
+    "basicTypes/numbersRef/intsRef/value",
+    "basicTypes/numbersRef/floatsRef/value",
+    "basicTypes/nullsRef/value",
+    "basicTypes/booleansRef/value",
+    "complexTypes/jsonObjectsRef/value",
+    "complexTypes/jsonArraysRef/value",
+    "complexTypes/jsonValuesRef/value"
+  ],
+  "aliases": [
+    "stringCol",
+    "intCol",
+    "floatCol",
+    "nullCol",
+    "booleanCol",
+    "jsonObjectCol",
+    "jsonArrayCol",
+    "jsonValueCol"
+  ],
+  "addressHashes": [
+    "2sZunZAWb9ZlcMFti8A4bq",
+    "cJhz9PiHpzhDJ_qdQNLV_U",
+    "GnG6RBk5dCGIk1mBNbdx_6",
+    "PIqubr7Tz-xQ6cIT-f939-",
+    "FYuPMxNjFpth4qhpYhtBXs",
+    "AjQd2cFWpdE_6QZfx4SF7z",
+    "dbTojL-iXEZS7Y2r9MkGDH",
+    "hKJOURxw--axRypU5ZX0O2"
+  ],
+  "addressSegments": [
+    [
+      "basicTypes",
+      "stringsRef",
+      "value"
+    ],
+    [
+      "basicTypes",
+      "numbersRef",
+      "intsRef",
+      "value"
+    ],
+    [
+      "basicTypes",
+      "numbersRef",
+      "floatsRef",
+      "value"
+    ],
+    [
+      "basicTypes",
+      "nullsRef",
+      "value"
+    ],
+    [
+      "basicTypes",
+      "booleansRef",
+      "value"
+    ],
+    [
+      "complexTypes",
+      "jsonObjectsRef",
+      "value"
+    ],
+    [
+      "complexTypes",
+      "jsonArraysRef",
+      "value"
+    ],
+    [
+      "complexTypes",
+      "jsonValuesRef",
+      "value"
+    ]
+  ]
+}

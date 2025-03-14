@@ -1,0 +1,15 @@
+{
+  "alias": "stringCol",
+  "address": "basicTypes/stringsRef/value",
+  "type": "string",
+  "titleLong": "String values",
+  "titleShort": "Strings",
+  "addressHash": "2sZunZAWb9ZlcMFti8A4bq",
+  "addressSegments": [
+    "basicTypes",
+    "stringsRef",
+    "value"
+  ],
+  "index": 0,
+  "_hash": "Mkm_W8fykN1dlIJGk6tBby"
+}
