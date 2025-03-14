@@ -4,24 +4,97 @@
 // Use of this source code is governed by terms that can be
 // found in the LICENSE file in the root of this package.
 
-// import { Table } from '@rljson/table';
-import { Table } from './table.ts';
+import { ColumnInfo, ColumnSelection } from './column-selection.ts';
 
-export const example = () => {
-  // Print methods
-  const l = console.log;
-  const h1 = (text: string) => l(`${text}`);
-  const h2 = (text: string) => l(`  ${text.split('\n')}`);
-  const p = (text: string) => l(`    ${text}`);
+export class Example {
+  static columnSelection() {
+    return new ColumnSelection([
+      {
+        alias: 'stringCol',
+        address: 'basicTypes/stringsRef/value',
+        type: 'string',
+        titleLong: 'String values',
+        titleShort: 'Strings',
+      },
+      {
+        alias: 'intCol',
+        address: 'basicTypes/numbersRef/intsRef/value',
+        type: 'number',
+        titleLong: 'Int values',
+        titleShort: 'Ints',
+      },
+      {
+        alias: 'floatCol',
+        address: 'basicTypes/numbersRef/floatsRef/value',
+        type: 'number',
+        titleLong: 'Float values',
+        titleShort: 'Floats',
+      },
+      {
+        alias: 'nullCol',
+        address: 'basicTypes/nullsRef/value',
+        type: 'null',
+        titleLong: 'Null values',
+        titleShort: 'Nulls',
+      },
+      {
+        alias: 'booleanCol',
+        address: 'basicTypes/booleansRef/value',
+        type: 'boolean',
+        titleLong: 'Boolean values',
+        titleShort: 'Booleans',
+      },
+      {
+        alias: 'jsonObjectCol',
+        address: 'complexTypes/jsonObjectsRef/value',
+        type: 'json',
+        titleLong: 'Json objects',
+        titleShort: 'JO',
+      },
+      {
+        alias: 'jsonArrayCol',
+        address: 'complexTypes/jsonArraysRef/value',
+        type: 'jsonArray',
+        titleLong: 'Array values',
+        titleShort: 'JA',
+      },
+      {
+        alias: 'jsonValueCol',
+        address: 'complexTypes/jsonValuesRef/value',
+        type: 'jsonValue',
+        titleLong: 'Json values',
+        titleShort: 'JV',
+      },
+    ]);
+  }
+  static columnSelectionBroken(): ColumnInfo[] {
+    return [
+      {
+        alias: 'stringCol',
+        address: 'basicTypes/stringsRef/value',
+        type: 'string',
+        titleLong: 'String values',
+        titleShort: 'Strings',
+      },
+      {
+        alias: 'stringCol', // ⚠️ Duplicate alias
+        address: 'basicTypes/stringsRef/value',
+        type: 'string',
+        titleLong: 'String values',
+        titleShort: 'Strings',
+      },
+    ];
+  }
 
-  // Example
-  h1('Table.example');
-  h2('Returns an instance of the table.');
-  const example = Table.example;
-  p(JSON.stringify(example, null, 2));
-};
+  static columnSelectionEmpty() {
+    return new ColumnSelection([]);
+  }
 
-/*
-// Run via "npx vite-node src/example.ts"
-example();
-*/
+  static tableData() {
+    return [
+      ['Zero', 0, 0.01, null, false, { a: { b: 0 } }, [0, 1, [2, 3]], 0],
+      ['One', 1, 1.01, null, true, { a: { b: 1 } }, [1, 2, [3, 4]], 'One'],
+      ['Two', 2, 2.02, null, false, { a: { b: 2 } }, [2, 3, [4, 5]], { a: 2 }],
+    ];
+  }
+}

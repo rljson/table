@@ -4,4 +4,6 @@
 // Use of this source code is governed by terms that can be
 // found in the LICENSE file in the root of this package.
 
-export { Table } from './table.ts';
+export * from './column-selection.ts';
+export * from './example.ts';
+export * from './table.ts';

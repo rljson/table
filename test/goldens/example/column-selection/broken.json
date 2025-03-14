@@ -1,0 +1,16 @@
+[
+  {
+    "alias": "stringCol",
+    "address": "basicTypes/stringsRef/value",
+    "type": "string",
+    "titleLong": "String values",
+    "titleShort": "Strings"
+  },
+  {
+    "alias": "stringCol",
+    "address": "basicTypes/stringsRef/value",
+    "type": "string",
+    "titleLong": "String values",
+    "titleShort": "Strings"
+  }
+]
