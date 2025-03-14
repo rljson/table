@@ -8,7 +8,7 @@ import { JsonValueType } from '@rljson/json';
 
 import { beforeAll, describe, expect, it } from 'vitest';
 
-import { ColumnSelection } from '../src/column-selection';
+import { ColumnsConfig } from '../src/columns-config';
 import { Table } from '../src/table';
 import { TableWithData } from '../src/table-with-data';
 
@@ -44,7 +44,7 @@ describe('Table', () => {
       let message = '';
 
       try {
-        new TableWithData(ColumnSelection.example(), [
+        new TableWithData(ColumnsConfig.example(), [
           ['Three', 3], // Too less columns
           ['Four', 4],
         ]);
@@ -53,8 +53,8 @@ describe('Table', () => {
       }
 
       expect(message).toBe(
-        'Number of columns in data and in columnSelection do not match: ' +
-          'Column count in "columnSelection" is "8" and in row "0" is "2".',
+        'Number of columns in data and in columnsConfig do not match: ' +
+          'Column count in "columnsConfig" is "8" and in row "0" is "2".',
       );
     });
   });
@@ -91,18 +91,18 @@ describe('Table', () => {
     });
 
     describe('with deep', () => {
-      let columnSelection: ColumnSelection;
+      let columnsConfig: ColumnsConfig;
       const deep = true;
       let result: JsonValueType[];
 
       beforeAll(() => {
-        columnSelection = ColumnSelection.example();
+        columnsConfig = ColumnsConfig.example();
         const table = TableWithData.example();
         result = Table.calcColumnTypes(table.rows, deep);
       });
       describe('== true', () => {
         it('returns an empty array when the rows contains no cells', () => {
-          const table = new TableWithData(ColumnSelection.empty(), [[]]);
+          const table = new TableWithData(ColumnsConfig.empty(), [[]]);
           expect(table.columnTypes).toEqual([]);
         });
 
@@ -124,7 +124,7 @@ describe('Table', () => {
         });
 
         it('returns JsonValue if a column contains only null values', () => {
-          const table = new TableWithData(columnSelection, [
+          const table = new TableWithData(columnsConfig, [
             [null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null],

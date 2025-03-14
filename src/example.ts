@@ -4,11 +4,11 @@
 // Use of this source code is governed by terms that can be
 // found in the LICENSE file in the root of this package.
 
-import { ColumnInfo, ColumnSelection } from './column-selection.ts';
+import { ColumnInfo, ColumnsConfig } from './columns-config.ts';
 
 export class Example {
-  static columnSelection() {
-    return new ColumnSelection([
+  static columnsConfig() {
+    return new ColumnsConfig([
       {
         alias: 'stringCol',
         address: 'basicTypes/stringsRef/value',
@@ -67,7 +67,7 @@ export class Example {
       },
     ]);
   }
-  static columnSelectionBroken(): ColumnInfo[] {
+  static columnsConfigBroken(): ColumnInfo[] {
     return [
       {
         alias: 'stringCol',
@@ -86,8 +86,8 @@ export class Example {
     ];
   }
 
-  static columnSelectionEmpty() {
-    return new ColumnSelection([]);
+  static columnsConfigEmpty() {
+    return new ColumnsConfig([]);
   }
 
   static tableData() {
