@@ -6,23 +6,23 @@
 
 import { JsonValueType } from '@rljson/json';
 
-import { ColumnSelection } from './column-selection.ts';
+import { ColumnsConfig } from './columns-config.ts';
 import { Example } from './example.ts';
 import { Table } from './table.ts';
 
 export class TableWithData extends Table {
   /**
    * constructor
-   * @param columnSelection The column selection of the table
+   * @param columnsConfig The column selection of the table
    * @param rows The rows of the table
    * @throws If the number of columns in the data does not match the column
    * selection
    */
   constructor(
-    public readonly columnSelection: ColumnSelection,
+    public readonly columnsConfig: ColumnsConfig,
     public readonly rows: any[][],
   ) {
-    super(columnSelection);
+    super(columnsConfig);
     this._updateRowIndices();
     this._updateRowHashes();
     this.check();
@@ -38,14 +38,14 @@ export class TableWithData extends Table {
    * An example table with data
    */
   static example() {
-    return new TableWithData(Example.columnSelection(), Example.tableData());
+    return new TableWithData(Example.columnsConfig(), Example.tableData());
   }
 
   /**
    * Returns an empty table
    */
   static empty() {
-    return new TableWithData(Example.columnSelection(), []);
+    return new TableWithData(Example.columnsConfig(), []);
   }
 
   // ######################

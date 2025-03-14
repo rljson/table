@@ -6,27 +6,27 @@
 
 import { beforeAll, describe, expect, it } from 'vitest';
 
-import { ColumnSelection } from '../src/column-selection';
+import { ColumnsConfig } from '../src/columns-config';
 import { Example } from '../src/example';
 
 import { expectGolden } from './setup/goldens';
 
-describe('ColumnSelection', () => {
-  let selection: ColumnSelection;
+describe('ColumnsConfig', () => {
+  let selection: ColumnsConfig;
 
   beforeAll(() => {
-    selection = ColumnSelection.example();
+    selection = ColumnsConfig.example();
   });
 
   it('empty', () => {
-    const empty = ColumnSelection.empty();
+    const empty = ColumnsConfig.empty();
     expect(empty.columns).toEqual([]);
   });
 
   describe('fromAddresses', () => {
     describe('fromAddressSegments', () => {
       it('takes the last address segment as alias', () => {
-        const selection = ColumnSelection.fromAddresses([
+        const selection = ColumnsConfig.fromAddresses([
           'a/b/c',
           'd/e/f',
           'h/i/g',
@@ -38,7 +38,7 @@ describe('ColumnSelection', () => {
       });
 
       it('appends a number to the alias if it already exists', () => {
-        const selection = ColumnSelection.fromAddresses([
+        const selection = ColumnsConfig.fromAddresses([
           'a/b/c',
           'd/e/c',
           'f/g/c',
@@ -51,7 +51,7 @@ describe('ColumnSelection', () => {
   });
 
   it('addresses', () => {
-    expectGolden('column-selection/addresses.json').toBe(selection.addresses);
+    expectGolden('columns-config/addresses.json').toBe(selection.addresses);
   });
 
   describe('address(alias)', () => {
@@ -77,13 +77,13 @@ describe('ColumnSelection', () => {
   });
 
   it('addressHashes', () => {
-    expectGolden('column-selection/address-hashes.json').toBe(
+    expectGolden('columns-config/address-hashes.json').toBe(
       selection.addressHashes,
     );
   });
 
   it('addressSegments', () => {
-    expectGolden('column-selection/address-segments.json').toBe(
+    expectGolden('columns-config/address-segments.json').toBe(
       selection.addressSegments,
     );
   });
@@ -107,7 +107,7 @@ describe('ColumnSelection', () => {
 
   describe('fromAddressSegments', () => {
     it('takes the last address segment as alias', () => {
-      const selection = ColumnSelection.fromAddressSegments([
+      const selection = ColumnsConfig.fromAddressSegments([
         ['a', 'b', 'c'],
         ['d', 'e', 'f'],
         ['h', 'i', 'g'],
@@ -118,7 +118,7 @@ describe('ColumnSelection', () => {
     });
 
     it('appends a number to the alias if it already exists', () => {
-      const selection = ColumnSelection.fromAddressSegments([
+      const selection = ColumnsConfig.fromAddressSegments([
         ['a', 'b', 'c'],
         ['d', 'e', 'c'],
         ['f', 'g', 'c'],
@@ -131,19 +131,19 @@ describe('ColumnSelection', () => {
 
   describe('merge', () => {
     it('merges multiple column selections into one', () => {
-      const selection1 = new ColumnSelection([
+      const selection1 = new ColumnsConfig([
         { alias: 'a', address: 'a/b/c', titleLong: '', titleShort: '' },
         { alias: 'd', address: 'd/e/f', titleLong: '', titleShort: '' },
       ]);
-      const selection2 = new ColumnSelection([
+      const selection2 = new ColumnsConfig([
         { alias: 'g', address: 'h/i/g', titleLong: '', titleShort: '' },
         { alias: 'd', address: 'd/e/f', titleLong: '', titleShort: '' },
       ]);
-      const selection3 = new ColumnSelection([
+      const selection3 = new ColumnsConfig([
         { alias: 'a', address: 'a/b/c', titleLong: '', titleShort: '' },
         { alias: 'h', address: 'h/i/g', titleLong: '', titleShort: '' },
       ]);
-      const merged = ColumnSelection.merge([
+      const merged = ColumnsConfig.merge([
         selection1,
         selection2,
         selection3,
@@ -154,15 +154,15 @@ describe('ColumnSelection', () => {
   });
 
   it('aliases', () => {
-    expectGolden('column-selection/aliases.json').toBe(selection.aliases);
+    expectGolden('columns-config/aliases.json').toBe(selection.aliases);
   });
 
   it('metadata', () => {
-    expectGolden('column-selection/title-short.json').toBe(
+    expectGolden('columns-config/title-short.json').toBe(
       selection.metadata('titleShort'),
     );
 
-    expectGolden('column-selection/title-long.json').toBe(
+    expectGolden('columns-config/title-long.json').toBe(
       selection.metadata('titleLong'),
     );
   });
@@ -170,7 +170,7 @@ describe('ColumnSelection', () => {
   describe('should throw', () => {
     it('throws when alias is duplicated', () => {
       expect(
-        () => new ColumnSelection(Example.columnSelectionBroken()),
+        () => new ColumnsConfig(Example.columnsConfigBroken()),
       ).toThrow('Duplicate alias: stringCol');
     });
   });
@@ -205,7 +205,7 @@ describe('ColumnSelection', () => {
       });
 
       it('the given address hash', () => {
-        const h = ColumnSelection.calcHash;
+        const h = ColumnsConfig.calcHash;
         expect(
           selection.columnIndex(h('basicTypes/numbersRef/intsRef/value')),
         ).toBe(1);
@@ -241,7 +241,7 @@ describe('ColumnSelection', () => {
     describe('column(aliasAddressOrHash)', () => {
       it('returns the column config for the desired column', () => {
         const result = selection.column('stringCol');
-        expectGolden('column-selection/column.json').toBe(result);
+        expectGolden('columns-config/column.json').toBe(result);
       });
     });
 
@@ -255,7 +255,7 @@ describe('ColumnSelection', () => {
       describe('throws an error', () => {
         it('when an alias is upper camel case', () => {
           expect(() =>
-            ColumnSelection.check(['ShortTitle'], ['shortTextsDe/shortText']),
+            ColumnsConfig.check(['ShortTitle'], ['shortTextsDe/shortText']),
           ).toThrowError(
             'Invalid alias "ShortTitle". Aliases must be lower camel case.',
           );
@@ -263,7 +263,7 @@ describe('ColumnSelection', () => {
 
         it('when an address contains special chars', () => {
           expect(() =>
-            ColumnSelection.check(
+            ColumnsConfig.check(
               ['shortTitle'],
               ['shortTextsDe#shortTextsDeRef/shortText$'],
             ),
@@ -275,7 +275,7 @@ describe('ColumnSelection', () => {
 
         it('when the parts of an address are not lower camel case strings', () => {
           expect(() =>
-            ColumnSelection.check(
+            ColumnsConfig.check(
               ['shortTitle'],
               ['shortTextsDe/ShortTextsDeRef/shortText'],
             ),
@@ -287,7 +287,7 @@ describe('ColumnSelection', () => {
 
         it('when an address occurs more than once', () => {
           expect(() =>
-            ColumnSelection.check(
+            ColumnsConfig.check(
               ['shortTitle', 'shortTitle2'],
               ['shortTextsDe/shortText', 'shortTextsDe/shortText'],
             ),
@@ -301,13 +301,13 @@ describe('ColumnSelection', () => {
 
     describe('addedColumns', () => {
       it('returns the missing columns', () => {
-        const current = ColumnSelection.fromAddresses([
+        const current = ColumnsConfig.fromAddresses([
           'a/b/c',
           'd/e/f',
           'h/i/g',
         ]);
 
-        const previous = ColumnSelection.fromAddresses([
+        const previous = ColumnsConfig.fromAddresses([
           'k/j/l',
           'd/e/f',
           'x/y/z',

@@ -11,19 +11,19 @@ import { Example } from '../src/example';
 import { expectGolden } from './setup/goldens';
 
 describe('Example', () => {
-  it('columnSelection', async () => {
-    const json = Example.columnSelection();
-    expectGolden('example/column-selection/column-selection.json').toBe(json);
+  it('columnsConfig', async () => {
+    const json = Example.columnsConfig();
+    expectGolden('example/columns-config/columns-config.json').toBe(json);
   });
 
-  it('columnSelectionBroken', async () => {
-    const json = Example.columnSelectionBroken();
-    expectGolden('example/column-selection/broken.json').toBe(json);
+  it('columnsConfigBroken', async () => {
+    const json = Example.columnsConfigBroken();
+    expectGolden('example/columns-config/broken.json').toBe(json);
   });
 
-  it('columnSelectionEmpty', async () => {
-    const json = Example.columnSelectionEmpty();
-    expectGolden('example/column-selection/empty.json').toBe(json);
+  it('columnsConfigEmpty', async () => {
+    const json = Example.columnsConfigEmpty();
+    expectGolden('example/columns-config/empty.json').toBe(json);
   });
 
   it('tableData', async () => {
