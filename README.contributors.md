@@ -149,7 +149,7 @@ Replace `ClassA` by `ClassB` in the following script and run it:
 
 ```bash
 export CLASS_A="ColumnSelection"
-export CLASS_B="ColumnsConfig"
+export CLASS_B="ColumnSelection"
 
 to_snake_case() {
     echo "$1" | sed -E 's/([a-z0-9])([A-Z])/\1-\2/g' | tr '[:upper:]' '[:lower:]'

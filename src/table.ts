@@ -7,7 +7,7 @@
 import { Hash } from '@rljson/hash';
 import { jsonValueType, JsonValueType } from '@rljson/json';
 
-import { ColumnsConfig } from './columns-config.ts';
+import { ColumnSelection } from './column-selection.ts';
 
 /**
  * Represents a table data object
@@ -15,9 +15,9 @@ import { ColumnsConfig } from './columns-config.ts';
 export abstract class Table {
   /**
    * Constructor
-   * @param columnsConfig The column selection the table
+   * @param columnSelection The column selection the table
    */
-  constructor(public readonly columnsConfig: ColumnsConfig) {}
+  constructor(public readonly columnSelection: ColumnSelection) {}
 
   /**
    * The number of rows in the table
@@ -30,7 +30,7 @@ export abstract class Table {
    * The number of columns in the table
    */
   get columnCount(): number {
-    return this.columnsConfig.count;
+    return this.columnSelection.count;
   }
 
   /**
@@ -206,8 +206,8 @@ export abstract class Table {
       const row = this.row(i);
       if (row.length !== columnCount) {
         throw new Error(
-          `Number of columns in data and in columnsConfig do not match: ` +
-            `Column count in "columnsConfig" is "${columnCount}" ` +
+          `Number of columns in data and in columnSelection do not match: ` +
+            `Column count in "columnSelection" is "${columnCount}" ` +
             `and in row "${i}" is "${row.length}".`,
         );
       }
