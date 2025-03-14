@@ -43,10 +43,10 @@ found in the LICENSE file in the root of this package.
 ### Checkout
 
 ```bash
-mkdir template
-cd template
-git clone https://github.com/rljson/template.git
-cd template
+mkdir table
+cd table
+git clone https://github.com/rljson/table.git
+cd table
 ```
 
 ### Install pnpm
@@ -246,7 +246,7 @@ Checkout [./README.trouble.md](./README.trouble.md)
 
 ### File issues on GitHub
 
-Visit <https://github.com/rljson/template/issues>
+Visit <https://github.com/rljson/table/issues>
 
 Check if there is already an issue for your problem.
 
