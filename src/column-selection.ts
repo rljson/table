@@ -21,35 +21,35 @@ export interface ColumnInfo {
   [key: string]: any;
 }
 
-export class ColumnsConfig {
+export class ColumnSelection {
   constructor(columns: ColumnInfo[]) {
     this._throwOnWrongAlias(columns);
 
     this.addresses = columns.map((column) => column.address);
     this.aliases = columns.map((column) => column.alias);
-    this.addressHashes = this.addresses.map(ColumnsConfig.calcHash);
+    this.addressHashes = this.addresses.map(ColumnSelection.calcHash);
     this.addressSegments = this.addresses.map((value) => value.split('/'));
     this.columns = this._initColumns(columns);
 
-    ColumnsConfig.check(this.aliases, this.addresses);
+    ColumnSelection.check(this.aliases, this.addresses);
   }
 
-  static example(): ColumnsConfig {
-    return Example.columnsConfig();
+  static example(): ColumnSelection {
+    return Example.columnSelection();
   }
 
   // ...........................................................................
-  static empty(): ColumnsConfig {
-    return Example.columnsConfigEmpty();
+  static empty(): ColumnSelection {
+    return Example.columnSelectionEmpty();
   }
 
   // ...........................................................................
   /**
-   * Returns a ColumnsConfig from a list of address segments
+   * Returns a ColumnSelection from a list of address segments
    * @param addressSegmentsList - A list of address segments
-   * @returns A ColumnsConfig object
+   * @returns A ColumnSelection object
    */
-  static fromAddressSegments(addressSegmentsList: string[][]): ColumnsConfig {
+  static fromAddressSegments(addressSegmentsList: string[][]): ColumnSelection {
     const definition: ColumnInfo[] = [];
     const aliasCountMap: Record<string, number> = {};
 
@@ -70,15 +70,15 @@ export class ColumnsConfig {
       });
     }
 
-    return new ColumnsConfig(definition);
+    return new ColumnSelection(definition);
   }
 
   // ...........................................................................
-  static fromAddresses(addresses: string[]): ColumnsConfig {
+  static fromAddresses(addresses: string[]): ColumnSelection {
     const addressesSplitted = Array.from(new Set(addresses)).map((address) =>
       address.split('/'),
     );
-    return ColumnsConfig.fromAddressSegments(addressesSplitted);
+    return ColumnSelection.fromAddressSegments(addressesSplitted);
   }
 
   // ...........................................................................
@@ -94,13 +94,13 @@ export class ColumnsConfig {
   }
 
   // ...........................................................................
-  static merge(columnsConfigs: ColumnsConfig[]): ColumnsConfig {
-    const addresses = columnsConfigs
+  static merge(columnSelections: ColumnSelection[]): ColumnSelection {
+    const addresses = columnSelections
       .map((selection) => selection.addresses)
       .flat();
 
     const addressesWithoutDuplicates = Array.from(new Set(addresses));
-    return ColumnsConfig.fromAddresses(addressesWithoutDuplicates);
+    return ColumnSelection.fromAddresses(addressesWithoutDuplicates);
   }
 
   // ...........................................................................
@@ -166,9 +166,9 @@ export class ColumnsConfig {
   }
 
   // ...........................................................................
-  addedColumns(columnsConfig: ColumnsConfig): string[] {
+  addedColumns(columnSelection: ColumnSelection): string[] {
     const a = this.addresses.filter(
-      (address) => !columnsConfig.addresses.includes(address),
+      (address) => !columnSelection.addresses.includes(address),
     );
 
     return a;
