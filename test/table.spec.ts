@@ -6,12 +6,12 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { Template } from '../src/template';
+import { Table } from '../src/table';
 
 
-describe('Template', () => {
-  it('should validate a template', () => {
-    const template = Template.example;
-    expect(template).toBeDefined();
+describe('Table', () => {
+  it('should validate a table', () => {
+    const table = Table.example;
+    expect(table).toBeDefined();
   });
 });

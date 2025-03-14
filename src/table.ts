@@ -5,9 +5,9 @@
 // found in the LICENSE file in the root of this package.
 
 // .............................................................................
-export class Template {
+export class Table {
   /** Example instance for test purposes */
-  static get example(): Template {
-    return new Template();
+  static get example(): Table {
+    return new Table();
   }
 }

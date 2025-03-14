@@ -4,8 +4,8 @@
 // Use of this source code is governed by terms that can be
 // found in the LICENSE file in the root of this package.
 
-// import { Template } from '@rljson/template';
-import { Template } from './template.ts';
+// import { Table } from '@rljson/table';
+import { Table } from './table.ts';
 
 export const example = () => {
   // Print methods
@@ -15,9 +15,9 @@ export const example = () => {
   const p = (text: string) => l(`    ${text}`);
 
   // Example
-  h1('Template.example');
-  h2('Returns an instance of the template.');
-  const example = Template.example;
+  h1('Table.example');
+  h2('Returns an instance of the table.');
+  const example = Table.example;
   p(JSON.stringify(example, null, 2));
 };
 
