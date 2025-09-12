@@ -31,13 +31,6 @@ export class Example {
         titleShort: 'Floats',
       },
       {
-        alias: 'nullCol',
-        address: 'basicTypes/nullsRef/value',
-        type: 'null',
-        titleLong: 'Null values',
-        titleShort: 'Nulls',
-      },
-      {
         alias: 'booleanCol',
         address: 'basicTypes/booleansRef/value',
         type: 'boolean',
@@ -92,9 +85,9 @@ export class Example {
 
   static tableData() {
     return [
-      ['Zero', 0, 0.01, null, false, { a: { b: 0 } }, [0, 1, [2, 3]], 0],
-      ['One', 1, 1.01, null, true, { a: { b: 1 } }, [1, 2, [3, 4]], 'One'],
-      ['Two', 2, 2.02, null, false, { a: { b: 2 } }, [2, 3, [4, 5]], { a: 2 }],
+      ['Zero', 0, 0.01, false, { a: { b: 0 } }, [0, 1, [2, 3]], 0],
+      ['One', 1, 1.01, true, { a: { b: 1 } }, [1, 2, [3, 4]], 'One'],
+      ['Two', 2, 2.02, false, { a: { b: 2 } }, [2, 3, [4, 5]], { a: 2 }],
     ];
   }
 }

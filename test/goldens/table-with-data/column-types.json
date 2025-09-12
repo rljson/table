@@ -2,9 +2,8 @@
   "string",
   "number",
   "number",
-  "jsonValue",
   "boolean",
   "json",
   "jsonArray",
-  "jsonValue"
+  "number"
 ]

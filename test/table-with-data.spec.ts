@@ -18,7 +18,7 @@ describe('TableWithData', () => {
   });
 
   it('columnCount', () => {
-    expect(table.columnCount).toBe(8);
+    expect(table.columnCount).toBe(7);
   });
 
   it('row', () => {

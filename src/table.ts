@@ -143,6 +143,36 @@ export abstract class Table {
     return result.map((e) => (e == null ? 'jsonValue' : e)) as JsonValueType[];
   }
 
+  validateSelection(selection: ColumnSelection): void {
+    const existing = this.columnSelection.addresses;
+
+    const missingCols = selection.columns.filter((columnInfo) => {
+      return existing.indexOf(columnInfo.address) < 0;
+    });
+
+    const missingAddresses = missingCols.map(
+      (columnInfo) => `    - ${columnInfo.address}`,
+    );
+
+    const missingAliases = missingCols
+      .map((columnInfo) => `"${columnInfo.alias}"`)
+      .join(missingCols.length > 2 ? ', ' : ' and ');
+
+    if (missingCols.length > 0) {
+      throw new Error(
+        [
+          `Missing column(s) ${missingAliases}:`,
+          '',
+          '  Missing:',
+          ...missingAddresses,
+          '',
+          '  Available:',
+          ...existing.map((address) => `    -${address}`),
+        ].join('\n'),
+      );
+    }
+  }
+
   // ######################
   // Protected
   // ######################

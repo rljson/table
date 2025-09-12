@@ -22,7 +22,7 @@ describe('Table', () => {
   });
 
   it('columnCount', () => {
-    expect(table.columnCount).toBe(8);
+    expect(table.columnCount).toBe(7);
   });
 
   it('row', () => {
@@ -54,7 +54,7 @@ describe('Table', () => {
 
       expect(message).toBe(
         'Number of columns in data and in columnSelection do not match: ' +
-          'Column count in "columnSelection" is "8" and in row "0" is "2".',
+          'Column count in "columnSelection" is "7" and in row "0" is "2".',
       );
     });
   });
@@ -111,7 +111,6 @@ describe('Table', () => {
             'string',
             'number',
             'number',
-            'jsonValue',
             'boolean',
             'json',
             'jsonArray',
@@ -120,17 +119,16 @@ describe('Table', () => {
         });
 
         it('returns "jsonValue" if a column contains more then one type', () => {
-          expect(result[7]).toBe('jsonValue');
+          expect(result[6]).toBe('jsonValue');
         });
 
         it('returns JsonValue if a column contains only null values', () => {
           const table = new TableWithData(columnSelection, [
-            [null, null, null, null, null, null, null, null],
-            [null, null, null, null, null, null, null, null],
-            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null],
           ]);
           expect(Table.calcColumnTypes(table.rows, deep)).toEqual([
-            'jsonValue',
             'jsonValue',
             'jsonValue',
             'jsonValue',
@@ -149,13 +147,153 @@ describe('Table', () => {
             'string',
             'number',
             'number',
-            'jsonValue',
             'boolean',
             'json',
             'jsonArray',
-            'jsonValue',
+            'number',
           ]);
         });
+      });
+    });
+  });
+
+  describe('validateSelection', () => {
+    it('does not throw when selection matches existing columns', () => {
+      const table = TableWithData.example();
+      const selection = ColumnSelection.example();
+      expect(() => table.validateSelection(selection)).not.toThrow();
+    });
+
+    describe('throws with correct mesage', () => {
+      it('when selection contains one missing column', () => {
+        const table = TableWithData.example();
+        // Create a selection with a non-existent column
+        const selection = new ColumnSelection([
+          {
+            address: 'nonexistent/a/b',
+            alias: 'nonexistent',
+            type: 'string',
+            titleShort: 'ne',
+            titleLong: 'Non existent',
+          },
+        ]);
+        let message: string[] = [];
+        try {
+          table.validateSelection(selection);
+        } catch (e) {
+          message = e.message.split('\n');
+        }
+        expect(message).toEqual([
+          'Missing column(s) "nonexistent":',
+          '',
+          '  Missing:',
+          '    - nonexistent/a/b',
+          '',
+          '  Available:',
+          '    -basicTypes/stringsRef/value',
+          '    -basicTypes/numbersRef/intsRef/value',
+          '    -basicTypes/numbersRef/floatsRef/value',
+          '    -basicTypes/booleansRef/value',
+          '    -complexTypes/jsonObjectsRef/value',
+          '    -complexTypes/jsonArraysRef/value',
+          '    -complexTypes/jsonValuesRef/value',
+        ]);
+      });
+
+      it('when selection contains two missing column', () => {
+        const table = TableWithData.example();
+        // Create a selection with a non-existent column
+        const selection = new ColumnSelection([
+          {
+            address: 'nonexistent/a',
+            alias: 'nonexistentA',
+            type: 'string',
+            titleShort: 'ne',
+            titleLong: 'Non existent',
+          },
+
+          {
+            address: 'nonexistent/b',
+            alias: 'nonexistentB',
+            type: 'string',
+            titleShort: 'ne',
+            titleLong: 'Non existent',
+          },
+        ]);
+        let message: string[] = [];
+        try {
+          table.validateSelection(selection);
+        } catch (e) {
+          message = e.message.split('\n');
+        }
+        expect(message).toEqual([
+          'Missing column(s) "nonexistentA" and "nonexistentB":',
+          '',
+          '  Missing:',
+          '    - nonexistent/a',
+          '    - nonexistent/b',
+          '',
+          '  Available:',
+          '    -basicTypes/stringsRef/value',
+          '    -basicTypes/numbersRef/intsRef/value',
+          '    -basicTypes/numbersRef/floatsRef/value',
+          '    -basicTypes/booleansRef/value',
+          '    -complexTypes/jsonObjectsRef/value',
+          '    -complexTypes/jsonArraysRef/value',
+          '    -complexTypes/jsonValuesRef/value',
+        ]);
+      });
+
+      it('when selection contains three and more missing column', () => {
+        const table = TableWithData.example();
+        // Create a selection with a non-existent column
+        const selection = new ColumnSelection([
+          {
+            address: 'nonexistent/a',
+            alias: 'nonexistentA',
+            type: 'string',
+            titleShort: 'ne',
+            titleLong: 'Non existent',
+          },
+
+          {
+            address: 'nonexistent/b',
+            alias: 'nonexistentB',
+            type: 'string',
+            titleShort: 'ne',
+            titleLong: 'Non existent',
+          },
+          {
+            address: 'nonexistent/c',
+            alias: 'nonexistentC',
+            type: 'string',
+            titleShort: 'ne',
+            titleLong: 'Non existent',
+          },
+        ]);
+        let message: string[] = [];
+        try {
+          table.validateSelection(selection);
+        } catch (e) {
+          message = e.message.split('\n');
+        }
+        expect(message).toEqual([
+          'Missing column(s) "nonexistentA", "nonexistentB", "nonexistentC":',
+          '',
+          '  Missing:',
+          '    - nonexistent/a',
+          '    - nonexistent/b',
+          '    - nonexistent/c',
+          '',
+          '  Available:',
+          '    -basicTypes/stringsRef/value',
+          '    -basicTypes/numbersRef/intsRef/value',
+          '    -basicTypes/numbersRef/floatsRef/value',
+          '    -basicTypes/booleansRef/value',
+          '    -complexTypes/jsonObjectsRef/value',
+          '    -complexTypes/jsonArraysRef/value',
+          '    -complexTypes/jsonValuesRef/value',
+        ]);
       });
     });
   });

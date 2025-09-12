@@ -187,7 +187,9 @@ describe('ColumnSelection', () => {
           selection.columnIndex('basicTypes/numbersRef/intsRef/value'),
         ).toBe(1);
 
-        expect(selection.columnIndex('basicTypes/nullsRef/value')).toBe(3);
+        expect(
+          selection.columnIndex('basicTypes/numbersRef/floatsRef/value'),
+        ).toBe(2);
       });
 
       it('the given address segments', () => {
@@ -247,7 +249,7 @@ describe('ColumnSelection', () => {
 
     describe('count', () => {
       it('returns the count', () => {
-        expect(selection.count).toBe(8);
+        expect(selection.count).toBe(7);
       });
     });
 
