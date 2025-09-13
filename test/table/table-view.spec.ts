@@ -82,7 +82,7 @@ describe('TableView', () => {
           'OneA',
           1,
           1.01,
-          true,
+          false,
           {
             _hash: 'aGyCrR_fCrzMa6oP_6N50z',
             a: {
@@ -115,7 +115,7 @@ describe('TableView', () => {
           'OneB',
           11,
           11.01,
-          true,
+          false,
           {
             _hash: 'ap4-YEnJA9ZqfJEu1Ma2Am',
             a: {
@@ -125,6 +125,22 @@ describe('TableView', () => {
           },
           [1, 2, [3, 4]],
           'OneB',
+        ],
+
+        [
+          'True',
+          12,
+          12.1,
+          true,
+          {
+            _hash: 'ap4-YEnJA9ZqfJEu1Ma2Am',
+            a: {
+              _hash: 'y-ZJyvmx49eS3YoRFL9nMG',
+              b: 11,
+            },
+          },
+          [1, 2, [3, 4]],
+          'True',
         ],
       ]);
 
@@ -154,6 +170,7 @@ describe('TableView', () => {
         ['OneA', 1],
         ['Two', 2],
         ['OneB', 11],
+        ['True', 12],
       ]);
 
       // Filter rows

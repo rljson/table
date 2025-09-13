@@ -18,7 +18,7 @@ describe('ColumnFilter', function () {
   });
 
   it('column', () => {
-    expect(columnFilter.column).toEqual('basicShapes/basicShapeNo');
+    expect(columnFilter.column).toEqual('basicTypes/numbersRef/intsRef/value');
   });
 
   it('operator', () => {
@@ -32,6 +32,6 @@ describe('ColumnFilter', function () {
   it('_hash', () => {
     const jh = Hash.default;
     jh.validate(columnFilter);
-    expect(columnFilter._hash).toEqual('SFLfcA2b8jM0g1G-wSkYYw');
+    expect(columnFilter._hash).toEqual('ef-3rgSpwOvMyMeQCmB5vV');
   });
 });

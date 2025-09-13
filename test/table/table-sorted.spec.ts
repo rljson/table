@@ -22,6 +22,7 @@ describe('TableSorted', () => {
       it('without params', () => {
         const e = TableSorted.example();
         expect(e.rows).toEqual([
+          ['True', 12],
           ['OneB', 11],
           ['Two', 2],
           ['OneA', 1],
@@ -50,7 +51,7 @@ describe('TableSorted', () => {
 
     describe('rowIndices', () => {
       it('returns the row indices of the view', () => {
-        expect(sorted.rowIndices).toEqual([0, 1, 2, 3]);
+        expect(sorted.rowIndices).toEqual([0, 1, 2, 3, 4]);
       });
     });
 
@@ -81,15 +82,17 @@ describe('TableSorted', () => {
 
     describe('row', () => {
       it('returns the sorted row data for the given index', () => {
-        expect(sortedDesc.row(0)).toEqual(['OneB', 11]);
-        expect(sortedDesc.row(1)).toEqual(['Two', 2]);
-        expect(sortedDesc.row(2)).toEqual(['OneA', 1]);
-        expect(sortedDesc.row(3)).toEqual(['Zero', 0]);
+        expect(sortedDesc.row(0)).toEqual(['True', 12]);
+        expect(sortedDesc.row(1)).toEqual(['OneB', 11]);
+        expect(sortedDesc.row(2)).toEqual(['Two', 2]);
+        expect(sortedDesc.row(3)).toEqual(['OneA', 1]);
+        expect(sortedDesc.row(4)).toEqual(['Zero', 0]);
 
         expect(sortedAsc.row(0)).toEqual(['Zero', 0]);
         expect(sortedAsc.row(1)).toEqual(['OneA', 1]);
         expect(sortedAsc.row(2)).toEqual(['Two', 2]);
         expect(sortedAsc.row(3)).toEqual(['OneB', 11]);
+        expect(sortedAsc.row(4)).toEqual(['True', 12]);
       });
     });
 

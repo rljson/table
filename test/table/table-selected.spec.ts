@@ -18,19 +18,20 @@ describe('TableSelected', () => {
         ['OneA', 1],
         ['Two', 2],
         ['OneB', 11],
+        ['True', 12],
       ]);
     });
   });
 
   describe('rowCount', () => {
     it('returns the number of rows in the view', () => {
-      expect(tableSelected.rowCount).toBe(4);
+      expect(tableSelected.rowCount).toBe(5);
     });
   });
 
   describe('rowIndices', () => {
     it('returns the row indices of the view', () => {
-      expect(tableSelected.rowIndices).toEqual([0, 1, 2, 3]);
+      expect(tableSelected.rowIndices).toEqual([0, 1, 2, 3, 4]);
     });
   });
 

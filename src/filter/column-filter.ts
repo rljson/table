@@ -33,7 +33,7 @@ export interface ColumnFilter<T extends JsonValue> extends Json {
 /// An example filter model for test purposes
 export const exampleColumnFilter = (): ColumnFilter<number> =>
   hip<ColumnFilter<number>>({
-    column: 'basicShapes/basicShapeNo',
+    column: 'basicTypes/numbersRef/intsRef/value',
     operator: 'equals',
     type: 'number',
     search: 24,

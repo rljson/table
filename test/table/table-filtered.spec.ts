@@ -1,6 +1,5 @@
 // @license
-// Copyright (c) 2025 CARAT Gesellschaft für Organisation
-// und Softwareentwicklung mbH. All Rights Reserved.
+// Copyright (c) 2025 Rljson
 //
 // Use of this source code is governed by terms that can be
 // found in the LICENSE file in the root of this package.
@@ -41,7 +40,7 @@ describe('TableFiltered', () => {
 
     describe('rowIndices', () => {
       it('returns the row indices of the view', () => {
-        expect(filtered.rowIndices).toEqual([0, 1, 2, 3]);
+        expect(filtered.rowIndices).toEqual([0, 1, 2, 3, 4]);
       });
     });
 
