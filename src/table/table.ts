@@ -7,7 +7,7 @@
 import { Hash } from '@rljson/hash';
 import { jsonValueType, JsonValueType } from '@rljson/json';
 
-import { ColumnSelection } from '../selection/column-selection.ts';
+import { ColumnSelection } from '../index.ts';
 
 /**
  * Represents a table data object

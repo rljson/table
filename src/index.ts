@@ -6,6 +6,8 @@
 
 export * from './edit/edit-action.ts';
 export * from './edit/edit.ts';
+export * from './edit/multi-edit-column-estimator.ts';
+export * from './edit/multi-edit-mixer.ts';
 export * from './edit/multi-edit-resolved.ts';
 export * from './edit/multi-edit.ts';
 export * from './example.ts';
@@ -21,6 +23,8 @@ export * from './filter/string-filter.ts';
 export * from './selection/column-selection.ts';
 export * from './sort/row-sort.ts';
 export * from './table/table-cache.ts';
+export * from './table/table-edited-multiple.ts';
+export * from './table/table-edited.ts';
 export * from './table/table-empty.ts';
 export * from './table/table-filtered.ts';
 export * from './table/table-selected.ts';

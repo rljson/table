@@ -4,14 +4,14 @@
 // Use of this source code is governed by terms that can be
 // found in the LICENSE file in the root of this package.
 
-import { beforeAll, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { MultiEditResolved } from '../../src/index.ts';
 
 describe('MultiEditResolved', () => {
   let current: MultiEditResolved;
 
-  beforeAll(() => {
+  beforeEach(() => {
     current = MultiEditResolved.example;
   });
 

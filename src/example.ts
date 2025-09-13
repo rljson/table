@@ -92,4 +92,11 @@ export class Example {
       ['True', 12, 12.1, true, { a: { b: 11 } }, [1, 2, [3, 4]], 'True'],
     ];
   }
+
+  static select = (row: any) => [
+    row[0],
+    row[1],
+    row[3],
+    row[4]['done'] ? 'done' : 'todo',
+  ];
 }

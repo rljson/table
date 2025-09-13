@@ -10,6 +10,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   Edit,
+  Example,
   exampleEditSetAllEndingWithOTo1234,
   exampleEditSetAllStartingWithOToTrue,
   exampleEditSetAllTrueToDone,
@@ -22,20 +23,13 @@ import { TableEdited } from '../../src/table/table-edited';
 import { TableWithData } from '../../src/table/table-with-data';
 
 describe('TableEdited', () => {
-  const select = (row: any) => [
-    row[0],
-    row[1],
-    row[3],
-    row[4]['done'] ? 'done' : 'todo',
-  ];
-
   describe('rows', () => {
     it('returns the edited rows of the original table', () => {
       const original = TableWithData.example();
-      const originalData = original.rows.map(select);
+      const originalData = original.rows.map(Example.select);
 
       const edited = TableEdited.example;
-      const editedData = edited.rows.map(select);
+      const editedData = edited.rows.map(Example.select);
 
       // For reference show the original table data
       expect(originalData).toEqual([
@@ -137,7 +131,7 @@ describe('TableEdited', () => {
         const table = TableWithData.example();
         const edit = exampleEditSetAllTrueToDone();
         const tableEdited = new TableEdited(table, edit);
-        const editedData = tableEdited.rows.map(select);
+        const editedData = tableEdited.rows.map(Example.select);
 
         expect(editedData).toEqual([
           ['Zero', 0, false, 'todo'],
@@ -152,7 +146,7 @@ describe('TableEdited', () => {
         const table = TableWithData.example();
         const edit = exampleEditSetAllStartingWithOToTrue();
         const tableEdited = new TableEdited(table, edit);
-        const editedData = tableEdited.rows.map(select);
+        const editedData = tableEdited.rows.map(Example.select);
         expect(editedData).toEqual([
           ['Zero', 0, false, 'todo'],
           ['OneA', 1, true, 'todo'], // Starts with O
@@ -166,7 +160,7 @@ describe('TableEdited', () => {
         const table = TableWithData.example();
         const edit = exampleEditSetAllEndingWithOTo1234();
         const tableEdited = new TableEdited(table, edit);
-        const editedData = tableEdited.rows.map(select);
+        const editedData = tableEdited.rows.map(Example.select);
 
         expect(editedData).toEqual([
           ['Zero', 1234, false, 'todo'], // Ends with o

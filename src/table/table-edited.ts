@@ -7,15 +7,14 @@
 import { Hash, hip } from '@rljson/hash';
 import { JsonValueType } from '@rljson/json';
 
-import {
-  Edit,
-  EditAction,
-  NumberFilter,
-  RowFilterProcessor,
-  StringFilter,
-  Table,
-  TableWithData,
-} from '../index.ts';
+import { EditAction } from '../edit/edit-action.ts';
+import { Edit } from '../edit/edit.ts';
+import { NumberFilter } from '../filter/number-filter.ts';
+import { RowFilterProcessor } from '../filter/row-filter-processor.ts';
+import { StringFilter } from '../filter/string-filter.ts';
+
+import { TableWithData } from './table-with-data.ts';
+import { Table } from './table.ts';
 
 /**
  * An table with an Edit applied to.
