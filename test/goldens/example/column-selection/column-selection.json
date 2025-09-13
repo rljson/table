@@ -48,21 +48,6 @@
       "_hash": "5EudF2bqTWGafMNAcYHNbw"
     },
     {
-      "alias": "nullCol",
-      "address": "basicTypes/nullsRef/value",
-      "type": "null",
-      "titleLong": "Null values",
-      "titleShort": "Nulls",
-      "addressHash": "PIqubr7Tz-xQ6cIT-f939-",
-      "addressSegments": [
-        "basicTypes",
-        "nullsRef",
-        "value"
-      ],
-      "index": 3,
-      "_hash": "FI91KhGzm2RpblSRVlqk8N"
-    },
-    {
       "alias": "booleanCol",
       "address": "basicTypes/booleansRef/value",
       "type": "boolean",
@@ -74,8 +59,8 @@
         "booleansRef",
         "value"
       ],
-      "index": 4,
-      "_hash": "gRKr922YjHvKpwDQAQye6z"
+      "index": 3,
+      "_hash": "FhGKwBVDjqSWRtcNKB21kM"
     },
     {
       "alias": "jsonObjectCol",
@@ -89,8 +74,8 @@
         "jsonObjectsRef",
         "value"
       ],
-      "index": 5,
-      "_hash": "3uUXrrIZ5p4jgZRmUYrwKb"
+      "index": 4,
+      "_hash": "QxmaBL6p7BcPbwN-zb6O56"
     },
     {
       "alias": "jsonArrayCol",
@@ -104,8 +89,8 @@
         "jsonArraysRef",
         "value"
       ],
-      "index": 6,
-      "_hash": "rU4hpnzwj2MdEtLy8LWjVF"
+      "index": 5,
+      "_hash": "5zXW5cGlyANue6LOY-9_8L"
     },
     {
       "alias": "jsonValueCol",
@@ -119,15 +104,14 @@
         "jsonValuesRef",
         "value"
       ],
-      "index": 7,
-      "_hash": "A4sMYxzEsTTXyW53cemhxZ"
+      "index": 6,
+      "_hash": "0UmCKNLqY0iT9RbGlGu1Yk"
     }
   ],
   "addresses": [
     "basicTypes/stringsRef/value",
     "basicTypes/numbersRef/intsRef/value",
     "basicTypes/numbersRef/floatsRef/value",
-    "basicTypes/nullsRef/value",
     "basicTypes/booleansRef/value",
     "complexTypes/jsonObjectsRef/value",
     "complexTypes/jsonArraysRef/value",
@@ -137,7 +121,6 @@
     "stringCol",
     "intCol",
     "floatCol",
-    "nullCol",
     "booleanCol",
     "jsonObjectCol",
     "jsonArrayCol",
@@ -147,7 +130,6 @@
     "2sZunZAWb9ZlcMFti8A4bq",
     "cJhz9PiHpzhDJ_qdQNLV_U",
     "GnG6RBk5dCGIk1mBNbdx_6",
-    "PIqubr7Tz-xQ6cIT-f939-",
     "FYuPMxNjFpth4qhpYhtBXs",
     "AjQd2cFWpdE_6QZfx4SF7z",
     "dbTojL-iXEZS7Y2r9MkGDH",
@@ -169,11 +151,6 @@
       "basicTypes",
       "numbersRef",
       "floatsRef",
-      "value"
-    ],
-    [
-      "basicTypes",
-      "nullsRef",
       "value"
     ],
     [

@@ -4,17 +4,16 @@
 // Use of this source code is governed by terms that can be
 // found in the LICENSE file in the root of this package.
 
-import { beforeAll, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 
-import { ColumnSelection } from '../src/column-selection';
-import { Example } from '../src/example';
+import { ColumnSelection, Example } from '../../src';
 
-import { expectGolden } from './setup/goldens';
+import { expectGolden } from '../setup/goldens';
 
 describe('ColumnSelection', () => {
   let selection: ColumnSelection;
 
-  beforeAll(() => {
+  beforeEach(() => {
     selection = ColumnSelection.example();
   });
 
@@ -187,7 +186,9 @@ describe('ColumnSelection', () => {
           selection.columnIndex('basicTypes/numbersRef/intsRef/value'),
         ).toBe(1);
 
-        expect(selection.columnIndex('basicTypes/nullsRef/value')).toBe(3);
+        expect(
+          selection.columnIndex('basicTypes/numbersRef/floatsRef/value'),
+        ).toBe(2);
       });
 
       it('the given address segments', () => {
@@ -247,7 +248,7 @@ describe('ColumnSelection', () => {
 
     describe('count', () => {
       it('returns the count', () => {
-        expect(selection.count).toBe(8);
+        expect(selection.count).toBe(7);
       });
     });
 

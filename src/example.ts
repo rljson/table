@@ -4,7 +4,7 @@
 // Use of this source code is governed by terms that can be
 // found in the LICENSE file in the root of this package.
 
-import { ColumnInfo, ColumnSelection } from './column-selection.ts';
+import { ColumnInfo, ColumnSelection } from './selection/column-selection.ts';
 
 export class Example {
   static columnSelection() {
@@ -29,13 +29,6 @@ export class Example {
         type: 'number',
         titleLong: 'Float values',
         titleShort: 'Floats',
-      },
-      {
-        alias: 'nullCol',
-        address: 'basicTypes/nullsRef/value',
-        type: 'null',
-        titleLong: 'Null values',
-        titleShort: 'Nulls',
       },
       {
         alias: 'booleanCol',
@@ -92,9 +85,18 @@ export class Example {
 
   static tableData() {
     return [
-      ['Zero', 0, 0.01, null, false, { a: { b: 0 } }, [0, 1, [2, 3]], 0],
-      ['One', 1, 1.01, null, true, { a: { b: 1 } }, [1, 2, [3, 4]], 'One'],
-      ['Two', 2, 2.02, null, false, { a: { b: 2 } }, [2, 3, [4, 5]], { a: 2 }],
+      ['Zero', 0, 0.01, false, { a: { b: 0 } }, [0, 1, [2, 3]], 0],
+      ['OneA', 1, 1.01, false, { a: { b: 1 } }, [1, 2, [3, 4]], 'OneA'],
+      ['Two', 2, 2.02, false, { a: { b: 2 } }, [2, 3, [4, 5]], { a: 2 }],
+      ['OneB', 11, 11.01, false, { a: { b: 11 } }, [1, 2, [3, 4]], 'OneB'],
+      ['True', 12, 12.1, true, { a: { b: 11 } }, [1, 2, [3, 4]], 'True'],
     ];
   }
+
+  static select = (row: any) => [
+    row[0],
+    row[1],
+    row[3],
+    row[4]['done'] ? 'done' : 'todo',
+  ];
 }
