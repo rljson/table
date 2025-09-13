@@ -6,7 +6,7 @@
 
 import { JsonValueType } from '@rljson/json';
 
-import { beforeAll, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { ColumnSelection, Table, TableWithData } from '../../src';
 
@@ -16,7 +16,7 @@ describe('Table', () => {
   const table = TableWithData.example();
 
   it('rowCount', () => {
-    expect(table.rowCount).toBe(3);
+    expect(table.rowCount).toBe(4);
   });
 
   it('columnCount', () => {
@@ -29,12 +29,14 @@ describe('Table', () => {
 
   it('value', () => {
     expect(table.value(0, 0)).toBe('Zero');
-    expect(table.value(1, 0)).toBe('One');
+    expect(table.value(1, 0)).toBe('OneA');
     expect(table.value(2, 0)).toBe('Two');
+    expect(table.value(3, 0)).toBe('OneB');
 
     expect(table.value(0, 1)).toBe(0);
     expect(table.value(1, 1)).toBe(1);
     expect(table.value(2, 1)).toBe(2);
+    expect(table.value(3, 1)).toBe(11);
   });
 
   describe('check', () => {
@@ -93,7 +95,7 @@ describe('Table', () => {
       const deep = true;
       let result: JsonValueType[];
 
-      beforeAll(() => {
+      beforeEach(() => {
         columnSelection = ColumnSelection.example();
         const table = TableWithData.example();
         result = Table.calcColumnTypes(table.rows, deep);

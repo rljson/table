@@ -4,7 +4,7 @@
 // Use of this source code is governed by terms that can be
 // found in the LICENSE file in the root of this package.
 
-import { beforeAll, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { ColumnSelection, Example } from '../../src';
 
@@ -13,7 +13,7 @@ import { expectGolden } from '../setup/goldens';
 describe('ColumnSelection', () => {
   let selection: ColumnSelection;
 
-  beforeAll(() => {
+  beforeEach(() => {
     selection = ColumnSelection.example();
   });
 

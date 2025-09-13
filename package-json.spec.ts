@@ -7,14 +7,14 @@
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 import { NormalizedPackageJson, readPackage } from 'read-pkg';
-import { beforeAll, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('package.json', () => {
   let json: NormalizedPackageJson;
   let viteConfig: string;
   let project: string;
 
-  beforeAll(async () => {
+  beforeEach(async () => {
     json = await readPackage();
     project = json.name.split('/').pop()!;
 

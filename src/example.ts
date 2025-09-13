@@ -86,8 +86,9 @@ export class Example {
   static tableData() {
     return [
       ['Zero', 0, 0.01, false, { a: { b: 0 } }, [0, 1, [2, 3]], 0],
-      ['One', 1, 1.01, true, { a: { b: 1 } }, [1, 2, [3, 4]], 'One'],
+      ['OneA', 1, 1.01, true, { a: { b: 1 } }, [1, 2, [3, 4]], 'OneA'],
       ['Two', 2, 2.02, false, { a: { b: 2 } }, [2, 3, [4, 5]], { a: 2 }],
+      ['OneB', 11, 11.01, true, { a: { b: 11 } }, [1, 2, [3, 4]], 'OneB'],
     ];
   }
 }

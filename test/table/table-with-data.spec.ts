@@ -14,7 +14,7 @@ describe('TableWithData', () => {
   const table = TableWithData.example();
 
   it('rowCount', () => {
-    expect(table.rowCount).toBe(3);
+    expect(table.rowCount).toBe(4);
   });
 
   it('columnCount', () => {

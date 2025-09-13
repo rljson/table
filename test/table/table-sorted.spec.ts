@@ -4,7 +4,7 @@
 // Use of this source code is governed by terms that can be
 // found in the LICENSE file in the root of this package.
 
-import { beforeAll, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { RowSort, TableSelected, TableSorted } from '../../src';
 
@@ -13,7 +13,7 @@ describe('TableSorted', () => {
     let original: TableSelected;
     let sorted: TableSorted;
 
-    beforeAll(() => {
+    beforeEach(() => {
       original = TableSelected.example;
       sorted = new TableSorted(original, RowSort.empty);
     });
@@ -22,8 +22,9 @@ describe('TableSorted', () => {
       it('without params', () => {
         const e = TableSorted.example();
         expect(e.rows).toEqual([
+          ['OneB', 11],
           ['Two', 2],
-          ['One', 1],
+          ['OneA', 1],
           ['Zero', 0],
         ]);
       });
@@ -49,7 +50,7 @@ describe('TableSorted', () => {
 
     describe('rowIndices', () => {
       it('returns the row indices of the view', () => {
-        expect(sorted.rowIndices).toEqual([0, 1, 2]);
+        expect(sorted.rowIndices).toEqual([0, 1, 2, 3]);
       });
     });
 
@@ -68,7 +69,7 @@ describe('TableSorted', () => {
     let sortedDesc: TableSorted;
     let sortedAsc: TableSorted;
 
-    beforeAll(() => {
+    beforeEach(() => {
       sortedDesc = TableSorted.example(
         new RowSort({ 'basicTypes/numbersRef/intsRef/value': 'desc' }),
       );
@@ -80,13 +81,15 @@ describe('TableSorted', () => {
 
     describe('row', () => {
       it('returns the sorted row data for the given index', () => {
-        expect(sortedDesc.row(0)).toEqual(['Two', 2]);
-        expect(sortedDesc.row(1)).toEqual(['One', 1]);
-        expect(sortedDesc.row(2)).toEqual(['Zero', 0]);
+        expect(sortedDesc.row(0)).toEqual(['OneB', 11]);
+        expect(sortedDesc.row(1)).toEqual(['Two', 2]);
+        expect(sortedDesc.row(2)).toEqual(['OneA', 1]);
+        expect(sortedDesc.row(3)).toEqual(['Zero', 0]);
 
         expect(sortedAsc.row(0)).toEqual(['Zero', 0]);
-        expect(sortedAsc.row(1)).toEqual(['One', 1]);
+        expect(sortedAsc.row(1)).toEqual(['OneA', 1]);
         expect(sortedAsc.row(2)).toEqual(['Two', 2]);
+        expect(sortedAsc.row(3)).toEqual(['OneB', 11]);
       });
     });
 
