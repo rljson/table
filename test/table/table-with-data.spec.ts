@@ -6,9 +6,9 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { TableWithData } from '../src/table-with-data';
+import { TableWithData } from '../../src';
 
-import { expectGolden } from './setup/goldens';
+import { expectGolden } from '../setup/goldens';
 
 describe('TableWithData', () => {
   const table = TableWithData.example();

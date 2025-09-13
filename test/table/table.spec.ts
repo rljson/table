@@ -8,11 +8,9 @@ import { JsonValueType } from '@rljson/json';
 
 import { beforeAll, describe, expect, it } from 'vitest';
 
-import { ColumnSelection } from '../src/column-selection';
-import { Table } from '../src/table';
-import { TableWithData } from '../src/table-with-data';
+import { ColumnSelection, Table, TableWithData } from '../../src';
 
-import { expectGolden } from './setup/goldens';
+import { expectGolden } from '../setup/goldens';
 
 describe('Table', () => {
   const table = TableWithData.example();

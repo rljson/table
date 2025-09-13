@@ -6,7 +6,8 @@
 
 import { JsonValueType } from '@rljson/json';
 
-import { RowSort } from './row-sort.ts';
+import { RowSort } from '../sort/row-sort.ts';
+
 import { TableSelected } from './table-selected.ts';
 import { Table } from './table.ts';
 

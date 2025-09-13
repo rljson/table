@@ -6,10 +6,9 @@
 
 import { beforeAll, describe, expect, it } from 'vitest';
 
-import { ColumnSelection } from '../src/column-selection';
-import { Example } from '../src/example';
+import { ColumnSelection, Example } from '../../src';
 
-import { expectGolden } from './setup/goldens';
+import { expectGolden } from '../setup/goldens';
 
 describe('ColumnSelection', () => {
   let selection: ColumnSelection;

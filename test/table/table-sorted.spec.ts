@@ -6,7 +6,7 @@
 
 import { beforeAll, describe, expect, it } from 'vitest';
 
-import { RowSort, TableSelected, TableSorted } from '../src';
+import { RowSort, TableSelected, TableSorted } from '../../src';
 
 describe('TableSorted', () => {
   describe('wth an empty filter', () => {

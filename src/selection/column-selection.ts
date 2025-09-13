@@ -7,7 +7,7 @@
 import { Hash, hip } from '@rljson/hash';
 import { JsonValueType } from '@rljson/json';
 
-import { Example } from './example.ts';
+import { Example } from '../example.ts';
 
 export type ColumnAddress = string | string[] | number;
 

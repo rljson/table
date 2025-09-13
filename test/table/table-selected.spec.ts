@@ -6,7 +6,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { TableSelected } from '../src/table-selected';
+import { TableSelected } from '../../src';
 
 describe('TableSelected', () => {
   const tableSelected = TableSelected.example;

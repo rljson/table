@@ -6,8 +6,9 @@
 
 import { JsonValueType } from '@rljson/json';
 
-import { ColumnSelection } from './column-selection.ts';
-import { Example } from './example.ts';
+import { Example } from '../example.ts';
+import { ColumnSelection } from '../selection/column-selection.ts';
+
 import { TableWithData } from './table-with-data.ts';
 import { Table } from './table.ts';
 

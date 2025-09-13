@@ -6,9 +6,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { ColumnSelection } from '../src/column-selection';
-import { RowSort } from '../src/row-sort';
-import { TableWithData } from '../src/table-with-data';
+import { ColumnSelection, RowSort, TableWithData } from '../../src';
 
 describe('RowSort', () => {
   const columnSelection = new ColumnSelection([

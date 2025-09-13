@@ -4,8 +4,8 @@
 // Use of this source code is governed by terms that can be
 // found in the LICENSE file in the root of this package.
 
-import { ColumnSelection } from './column-selection.ts';
-import { Table } from './table.ts';
+import { ColumnSelection } from '../selection/column-selection.ts';
+import { Table } from '../table/table.ts';
 
 /// Sort configuration for catalog data
 export class RowSort {
@@ -142,7 +142,7 @@ export class RowSort {
           `RowFilterProcessor: Error while applying sort to table: ` +
             `There is a sort entry for address "${address}", but the table ` +
             `does not have a column with this address.\n\nAvailable addresses:\n` +
-            `${availableAddresses.map((a) => `- ${a}`).join('\n')}`,
+            `${availableAddresses.map((a: string) => `- ${a}`).join('\n')}`,
         );
       }
     }
